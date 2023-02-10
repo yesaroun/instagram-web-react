@@ -1,32 +1,29 @@
 import styled from "styled-components";
+import {darkModeVar} from "../apollo";
 
 function Login() {
 
+  // App.js에서 theme라는 props 보냄
   const Title = styled.h1`
-    font-size: 1.5em;
-    text-align: center;
-    color: palevioletred;
+    color: ${(props) => props.theme.fontColor};
   `;
 
-  const Wrapper = styled.section`
-    display: flex;
-    flex-direction: column;
-    padding: 4em;
+  const Container = styled.div`
+    background-color: ${(props) => props.theme.bgColor};
   `;
 
   return (
     <div>
-      <Wrapper>
+      <Container>
         <Title>hi!</Title>
         <form action="">
           <input type="email"/>
           <input type="password"/>
           <input type="submit"/>
         </form>
-        hihihi
-        {/*<button onClick={}/>*/}
-        {/*<button onClick={}/>*/}
-      </Wrapper>
+        <button onClick={() => darkModeVar(true)}>Dark Mode</button>
+        <button onClick={() => darkModeVar(false)}>Light Mode</button>
+      </Container>
     </div>
   );
 }

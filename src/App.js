@@ -20,13 +20,13 @@ import { isLoggedInVar, darkModeVar } from "./apollo";
 
 
 const lightTheme = {
-  fontColor: "#c2c2c2",
-  bgColor: "lightgray",
+  fontColor: "rgb(38, 38, 38)",
+  bgColor: "#fafafa",
 };
 
 const darkTheme = {
-  fontColor: "lightgray",
-  bgColor: "#c2c2c2",
+  fontColor: "#fafafa",
+  bgColor: "rgb(38, 38, 38)",
 };
 
 function App() {
