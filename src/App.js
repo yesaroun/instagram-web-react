@@ -1,13 +1,23 @@
+/* routes */
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import SignUp from "./screens/SignUp";
 
+/* styled-component */
 import routes from "./routes";
 
+/* styled-component */
 // 테마 적용 라이브러리
 import {ThemeProvider} from "styled-components";
+
+/* apollo - reactive variables */
+// apollo를 사용하기 위해서는 이걸 불러와야 한다.
+import { useReactiveVar } from "@apollo/client";
+// apollo 변수 불러오기
+import { isLoggedInVar, darkModeVar } from "./apollo";
+
 
 const lightTheme = {
   fontColor: "#c2c2c2",
@@ -20,8 +30,9 @@ const darkTheme = {
 };
 
 function App() {
-  const isLoggedIn = false;
-  const darkMode = false;
+  // 전역 변수를 데려왔다.
+  const isLoggedIn = useReactiveVar(isLoggedInVar);
+  const darkMode = useReactiveVar(darkModeVar);
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
