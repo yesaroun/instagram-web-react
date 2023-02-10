@@ -17,17 +17,8 @@ import {ThemeProvider} from "styled-components";
 import { useReactiveVar } from "@apollo/client";
 // apollo 변수 불러오기
 import { isLoggedInVar, darkModeVar } from "./apollo";
+import { lightTheme, darkTheme, GlobalStyles } from "./styles";
 
-
-const lightTheme = {
-  fontColor: "rgb(38, 38, 38)",
-  bgColor: "#fafafa",
-};
-
-const darkTheme = {
-  fontColor: "#fafafa",
-  bgColor: "rgb(38, 38, 38)",
-};
 
 function App() {
   // 전역 변수를 데려왔다.
@@ -36,6 +27,7 @@ function App() {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <GlobalStyles/>   {/* 이렇게 하면 전체적으로 리셋이 적용된다 */}
       <Router>
         <Routes>
           <Route path={routes.home} element={isLoggedIn ? <Home/> : <Login/>}></Route>

@@ -1,0 +1,21 @@
+// 전체 css 리셋 파일 / globalstyle을 사용한다.
+import { createGlobalStyle } from "styled-components";
+
+/* npm i styles-reset */
+import reset from "styles-reset";
+
+// 전역으로 쓰기 위해서 export 사용
+export const lightTheme = {
+  fontColor: "rgb(38, 38, 38)",
+  bgColor: "#fafafa",
+};
+
+export const darkTheme = {
+  fontColor: "#fafafa",
+  bgColor: "rgb(38, 38, 38)",
+};
+
+export const GlobalStyles = createGlobalStyle`
+  ${reset}
+`;
+
