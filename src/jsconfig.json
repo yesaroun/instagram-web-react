@@ -1,4 +1,3 @@
-//src 폴더를 기준으로 절대경로 지정
 {
   "compilerOptions": {
     "baseUrl": "src"
