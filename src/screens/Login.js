@@ -9,17 +9,36 @@ function Login() {
   `;
 
   const Container = styled.div`
-    background-color: ${(props) => props.theme.bgColor};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   `;
+
+  // const Wrapper = styled.`
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: flex-end;
+  //   flex-wrap: wrap;
+  //   height: 100px;
+  // `
+  const FormWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `
 
   return (
     <div>
       <Container>
-        <Title>hi!</Title>
+        <Title>로고</Title>
         <form action="">
-          <input type="email"/>
-          <input type="password"/>
-          <input type="submit"/>
+          <FormWrapper>
+            <input type="email" placeholder="email"/>
+            <input type="password" placeholder="password"/>
+            <input type="submit"/>
+          </FormWrapper>
         </form>
         <button onClick={() => darkModeVar(true)}>Dark Mode</button>
         <button onClick={() => darkModeVar(false)}>Light Mode</button>
