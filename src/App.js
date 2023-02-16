@@ -18,6 +18,7 @@ import { useReactiveVar } from "@apollo/client";
 // apollo 변수 불러오기
 import { isLoggedInVar, darkModeVar } from "./apollo";
 import { lightTheme, darkTheme, GlobalStyles } from "./styles";
+import Header from "./components/Header";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       <GlobalStyles/>   {/* 이렇게 하면 전체적으로 리셋이 적용된다 */}
       <Router>
         <Routes>
-          <Route path={routes.home} element={isLoggedIn ? <Home/> : <Login/>}></Route>
+          <Route path={routes.home} element={isLoggedIn ? <Header><Home/></Header> : <Login/>}></Route>
           {/*<Route path="/home" element={<Home/>}></Route>*/}
           <Route path={routes.profile} element={<Profile/>}></Route>
           <Route path={routes.signUp} element={isLoggedIn ? null : <SignUp/>}></Route>
