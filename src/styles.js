@@ -8,6 +8,7 @@ import reset from "styles-reset";
 export const lightTheme = {
   fontColor: "rgb(38, 38, 38)",
   bgColor: "#fafafa",
+  borderColor: "black",
 };
 
 export const darkTheme = {
