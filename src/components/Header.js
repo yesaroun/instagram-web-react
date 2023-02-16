@@ -11,6 +11,7 @@ const HeaderContainer = styled.header`
   justify-content: center;
   border-bottom: 1px solid ${(props) => props.theme.borderColor};
   background-color: ${(props) => props.theme.bgColor};
+  padding: 18px 0;
 `;
 
 const Wrapper = styled.div`
@@ -34,17 +35,17 @@ function Header() {
     <HeaderContainer>
       <Wrapper>
         <Column>
-          <FontAwesomeIcon size={"2x"} icon={faInstagram}/>
+          <FontAwesomeIcon size="2x" icon={faInstagram}/>
         </Column>
         <Column>
           <Icon>
-            <FontAwesomeIcon size={"2x"} icon={faHome}/>
+            <FontAwesomeIcon size="lg" icon={faHome}/>
           </Icon>
           <Icon>
-            <FontAwesomeIcon size={"2x"} icon={faPaperPlane}/>
+            <FontAwesomeIcon size="lg" icon={faPaperPlane}/>
           </Icon>
           <Icon>
-            <FontAwesomeIcon size={"2x"} icon={faUser}/>
+            <FontAwesomeIcon size="lg" icon={faUser}/>
           </Icon>
         </Column>
       </Wrapper>
