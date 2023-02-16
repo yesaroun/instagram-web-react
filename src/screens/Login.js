@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {darkModeVar} from "../apollo";
 import {
   faFacebookSquare,
   faInstagram,
