@@ -33,7 +33,7 @@ function App() {
         <Routes>
           <Route path={routes.home} element={isLoggedIn ? <Layout><Home/></Layout> : <Login/>}></Route>
           {/*<Route path="/home" element={<Home/>}></Route>*/}
-          <Route path={routes.profile} element={<Profile/>}></Route>
+          <Route path={routes.profile} element={<Layout><Profile/></Layout>}></Route>
           <Route path={routes.signUp} element={isLoggedIn ? null : <SignUp/>}></Route>
         </Routes>
       </Router>
