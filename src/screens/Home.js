@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Avatar from "../components/Avartar";
+import Comments from "../components/Comments";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHeart as SolidHeart} from "@fortawesome/free-solid-svg-icons";
 import {faHeart, faComment, faPaperPlane, faBookmark} from "@fortawesome/free-regular-svg-icons";
@@ -56,6 +57,7 @@ const FeedActionContainer = styled.div`
 const Likes = styled.span`
   font-weight: 600;
   margin-top: 15px;
+  display: block;
 `;
 
 
@@ -86,6 +88,9 @@ function Home() {
             <FontAwesomeIcon size="lg" icon={faBookmark}/>
           </div>
         </FeedWrapper>
+
+        <Likes>likes</Likes>
+        <Comments/>
       </FeedActionContainer>
     </FeedContainer>
   );

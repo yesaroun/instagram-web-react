@@ -3,6 +3,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faInstagram} from "@fortawesome/free-brands-svg-icons";
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {faPaperPlane, faUser} from "@fortawesome/free-regular-svg-icons";
+import {Link} from "react-router-dom";
+import profile from "../screens/Profile";
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -44,9 +46,11 @@ function Header() {
           <Icon>
             <FontAwesomeIcon size="lg" icon={faPaperPlane}/>
           </Icon>
-          <Icon>
-            <FontAwesomeIcon size="lg" icon={faUser}/>
-          </Icon>
+          <Link to="/profile">
+            <Icon>
+              <FontAwesomeIcon size="lg" icon={faUser}/>
+            </Icon>
+          </Link>
         </Column>
       </Wrapper>
     </HeaderContainer>
