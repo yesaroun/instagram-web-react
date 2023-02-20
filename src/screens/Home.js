@@ -10,6 +10,7 @@ const FeedContainer = styled.div`
   flex-direction: column;
   border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 4px;
+  margin: 0 auto;
   margin-bottom: 60px;
   max-width: 650px;
   background-color: white;
