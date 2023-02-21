@@ -3,9 +3,9 @@ import {
   faFacebookSquare,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
-import {isLoggedInVar} from "../apollo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+import { isLoggedInVar } from "../apollo";
 
 const Container = styled.div`
   display: flex;
@@ -125,13 +125,13 @@ function Login() {
       <Wrapper>
         <TopBox>
           <div>
-            <FontAwesomeIcon icon={faInstagram} size="3x"/>
+            <FontAwesomeIcon icon={faInstagram} size="3x" />
           </div>
 
           <form onSubmit={onSubmit}>
-            <Input type="email" placeholder="이메일"/>
-            <Input type="password " placeholder="비밀번호"/>
-            <Button type="submit" value="로그인"/>
+            <Input type="email" placeholder="이메일" />
+            <Input type="password " placeholder="비밀번호" />
+            <Button type="submit" value="로그인" />
           </form>
 
           <Separator>
@@ -141,7 +141,7 @@ function Login() {
           </Separator>
 
           <FacebookLogin>
-            <FontAwesomeIcon icon={faFacebookSquare}/>
+            <FontAwesomeIcon icon={faFacebookSquare} />
             <span>Facebook으로 로그인</span>
           </FacebookLogin>
         </TopBox>

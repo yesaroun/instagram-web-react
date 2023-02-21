@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {faComment, faHeart} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProfileName = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ const Contents = styled.div`
 const Feed = styled.div`
   background-image: url(${(props) => props.bg});
   background-size: cover;
-  position:relative;
+  position: relative;
 `;
 
 const Icons = styled.div`
@@ -81,7 +81,7 @@ const Icon = styled.span`
   margin: {
     left: 5px;
     right: 5px;
-  };
+  }
   svg {
     font-size: 14px;
     margin-right: 5px;
@@ -92,8 +92,10 @@ function Profile() {
   return (
     <>
       <Header>
-        <ProfileImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRomNxzu2Qeojtpo4Rql1wLPaGTofuViEFJA&usqp=CAU" alt="profile img">
-        </ProfileImg>
+        <ProfileImg
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRomNxzu2Qeojtpo4Rql1wLPaGTofuViEFJA&usqp=CAU"
+          alt="profile img"
+        ></ProfileImg>
         <ProfileInfo>
           <Row>
             <Username>유저명</Username>
@@ -113,8 +115,12 @@ function Profile() {
       <Contents>
         <Feed bg="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbfU91C%2FbtrroyqLD6T%2FDjcxlQNMDVU42HdICxYL0k%2Fimg.png">
           <Icons>
-            <Icon><FontAwesomeIcon icon={faHeart}></FontAwesomeIcon></Icon>
-            <Icon><FontAwesomeIcon icon={faComment}></FontAwesomeIcon></Icon>
+            <Icon>
+              <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+            </Icon>
+            <Icon>
+              <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
+            </Icon>
           </Icons>
         </Feed>
       </Contents>

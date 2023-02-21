@@ -31,4 +31,3 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${(props) => props.theme.bgColor};
   }
 `;
-

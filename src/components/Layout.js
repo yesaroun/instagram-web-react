@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Header from './Header';
+import Header from "./Header";
 
 const Content = styled.div`
   width: 100%;
@@ -8,16 +8,15 @@ const Content = styled.div`
   margin-top: 45px;
 `;
 
-function Layout({children}) {
-
+function Layout({ children }) {
   console.log(children);
 
   return (
     <>
-      <Header/>
+      <Header />
       <Content>{children}</Content>
     </>
   );
-};
+}
 
 export default Layout;
