@@ -14,7 +14,6 @@ const CommentCount = styled.span`
   margin-top: 10px;
   margin-bottom: 10px;
 `;
-
 const CommentAuthor = styled.span`
   font-weight: 600;
   margin-right: 10px;
