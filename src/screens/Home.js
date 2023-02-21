@@ -1,99 +1,94 @@
-import styled from "styled-components";
-import Avatar from "../components/Avartar";
-import Comments from "../components/Comments";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faHeart as SolidHeart} from "@fortawesome/free-solid-svg-icons";
-import {faHeart, faComment, faPaperPlane, faBookmark} from "@fortawesome/free-regular-svg-icons";
-
-const FeedContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid ${(props) => props.theme.borderColor};
-  border-radius: 4px;
-  margin: 0 auto;
-  margin-bottom: 60px;
-  max-width: 650px;
-  background-color: white;
-`;
-
-const FeedHeader = styled.div`
-  display: flex;
-  padding: 15px;
-  align-items: center;
-  border-bottom: 1px solid rgba(239, 239, 239);
-`;
-
-const Nickname = styled.div`
-  margin-left: 10px;
-  font-weight: 600;
-`;
-
-const FeedPhoto = styled.img`
-  width: 100%;
-  max-width: 100%;
-`;
-
-const FeedAction = styled.div`
-  margin-right: 10px;
-  cursor: pointer;
-`;
-
-const FeedWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  div {
-    display: flex;
-    align-items: center;
-  }
-  svg {
-    font-size: 20px;
-  }
-`;
-
-const FeedActionContainer = styled.div`
-  padding: 12px 15px;
-`;
-
-const Likes = styled.span`
-  font-weight: 600;
-  margin-top: 15px;
-  display: block;
-`;
-
+import Feed from "../components/Feed";
 
 function Home() {
-  return (
-    <FeedContainer>
-      <FeedHeader>
-        <Avatar
-          lg
-          url="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgreenaqua.hu%2Fen%2Fhal-sziami-harcoshal-betta-splendens-dumbo.html&psig=AOvVaw2MQ-lkIZ-dEKY_Izsofbf2&ust=1676622423958000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCIiLkbbPmf0CFQAAAAAdAAAAABAD"
-        />
-        <Nickname>Nickname</Nickname>
-      </FeedHeader>
-      <FeedPhoto
-        src="https://wooarts.com/wp-content/uploads/sites/1/nggallery/amazing-beta-fish/amazing-beta-fish-shots-wooarts-01.jpg"/>
-      <FeedActionContainer>
-        <FeedWrapper>
-          <div>
-            <FeedAction>
-              <FontAwesomeIcon style={{color: true ? "tomato" : "inherit"}} icon={true ? SolidHeart : faHeart}/>
-            </FeedAction>
-            <FeedAction>
-              <FontAwesomeIcon size="lg" icon={faComment}/>
-            </FeedAction>
-            <FontAwesomeIcon size="lg" icon={faPaperPlane}/>
-          </div>
-          <div>
-            <FontAwesomeIcon size="lg" icon={faBookmark}/>
-          </div>
-        </FeedWrapper>
+  const data = [
+    {
+      id: 1,
+      file: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbd1AGu%2FbtrAxilYCEv%2FcbGf06QI40p9e9FWG2fkd0%2Fimg.png",
+      caption: "내용입니다~~~",
+      likes: 100,
+      user: {
+        username: "development",
+        profileImg:
+          "https://wooarts.com/wp-content/uploads/sites/1/nggallery/amazing-beta-fish/amazing-beta-fish-shots-wooarts-01.jpg",
+      },
+      commentNumber: 33,
+      isLiked: true,
+      comments: [
+        {
+          id: 1,
+          payload: "첫 번째 댓글",
+          user: {
+            username: "nickname2",
+            profileImg:
+              "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQ9mLr%2FbtrRjqVhUuN%2FCXBupDdccKJL6pReJJYH5k%2Fimg.png",
+          },
+        },
+        {
+          id: 2,
+          payload: "두 번째 댓글",
+          user: {
+            username: "nickname3",
+            profileImg:
+              "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQ9mLr%2FbtrRjqVhUuN%2FCXBupDdccKJL6pReJJYH5k%2Fimg.png",
+          },
+        },
+      ],
+    },
+    {
+      id: 2,
+      file: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbd1AGu%2FbtrAxilYCEv%2FcbGf06QI40p9e9FWG2fkd0%2Fimg.png",
+      caption: "내용입니다~~~",
+      likes: 100,
+      user: {
+        username: "development",
+        profileImg:
+          "https://wooarts.com/wp-content/uploads/sites/1/nggallery/amazing-beta-fish/amazing-beta-fish-shots-wooarts-01.jpg",
+      },
+      commentNumber: 33,
+      isLiked: false,
+    },
+    {
+      id: 3,
+      file: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbd1AGu%2FbtrAxilYCEv%2FcbGf06QI40p9e9FWG2fkd0%2Fimg.png",
+      caption: "내용입니다~~~",
+      likes: 100,
+      user: {
+        username: "development",
+        profileImg:
+          "https://wooarts.com/wp-content/uploads/sites/1/nggallery/amazing-beta-fish/amazing-beta-fish-shots-wooarts-01.jpg",
+      },
+      commentNumber: 33,
+      isLiked: true,
+      comments: [
+        {
+          id: 1,
+          payload: "첫 번째 댓글",
+          user: {
+            username: "nickname2",
+            profileImg:
+              "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQ9mLr%2FbtrRjqVhUuN%2FCXBupDdccKJL6pReJJYH5k%2Fimg.png",
+          },
+        },
+        {
+          id: 2,
+          payload: "두 번째 댓글",
+          user: {
+            username: "nickname3",
+            profileImg:
+              "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcQ9mLr%2FbtrRjqVhUuN%2FCXBupDdccKJL6pReJJYH5k%2Fimg.png",
+          },
+        },
+      ],
+    },
+  ];
 
-        <Likes>likes</Likes>
-        <Comments/>
-      </FeedActionContainer>
-    </FeedContainer>
+  return (
+    <div>
+      {data?.map((feed) => (
+        <Feed key={feed.id} {...feed} />
+      ))}
+    </div>
   );
 }
 
