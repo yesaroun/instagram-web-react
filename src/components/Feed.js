@@ -47,10 +47,12 @@ const FeedWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   div {
     display: flex;
     align-items: center;
   }
+
   svg {
     font-size: 20px;
   }
@@ -103,7 +105,16 @@ function Feed({
         </FeedWrapper>
 
         <Likes>{likes} likes</Likes>
-        <Comments />
+        <Comments
+          key={id}
+          author={user.username} // 작성자
+          caption={caption} // 작성내용
+          comments={comments} // 댓글들 (댓글작성자, 댓글내용)
+          commentNumber={commentNumber} // 댓글 갯수
+        />
+        {/*{comments?.map((comment) => (*/}
+        {/*  <Comments key={comment.id} {...comment} />*/}
+        {/*))}*/}
       </FeedActionContainer>
     </FeedContainer>
   );
