@@ -31,7 +31,7 @@ function Comments({ author, caption, comments, commentNumber }) {
       <CommentCount>댓글 갯수: {commentNumber}개</CommentCount>
 
       {comments?.map((comment) => (
-        <CommentContainer>
+        <CommentContainer key={comment.id}>
           <CommentAuthor>{comment.user.username}</CommentAuthor>
           <CommentContent>{comment.rcaption}</CommentContent>
         </CommentContainer>
