@@ -70,11 +70,12 @@ const Likes = styled.span`
 
 function Feed({
   id,
-  file,
+  // file,
+  contentImg,
   caption,
   user,
-  likes,
-  commentNumber,
+  likesNum,
+  reviewsNum,
   comments,
   isLiked,
 }) {
@@ -84,7 +85,8 @@ function Feed({
         <Avatar lg url={user.profileImg} />
         <Nickname>{user.username}</Nickname>
       </FeedHeader>
-      <FeedPhoto src={file} />
+      {/*<FeedPhoto src={file} />*/}
+      <FeedPhoto src={contentImg} />
       <FeedActionContainer>
         <FeedWrapper>
           <div>
@@ -104,13 +106,13 @@ function Feed({
           </div>
         </FeedWrapper>
 
-        <Likes>{likes} likes</Likes>
+        <Likes>{likesNum} likes</Likes>
         <Comments
           key={id}
           author={user.username} // 작성자
           caption={caption} // 작성내용
           comments={comments} // 댓글들 (댓글작성자, 댓글내용)
-          commentNumber={commentNumber} // 댓글 갯수
+          commentNumber={reviewsNum} // 댓글 갯수
         />
         {/*{comments?.map((comment) => (*/}
         {/*  <Comments key={comment.id} {...comment} />*/}
