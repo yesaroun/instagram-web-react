@@ -16,6 +16,9 @@ function Home() {
       {/*{data?.map((feed) => (*/}
       {/*  <Feed key={feed.id} {...feed} />*/}
       {/*))}*/}
+      {data?.map((feed) => (
+        <Feed key={feed.id} {...feed} />
+      ))}
     </div>
   );
 }
