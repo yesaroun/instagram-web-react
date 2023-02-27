@@ -76,7 +76,7 @@ function Feed({
   user,
   likesNum,
   reviewsNum,
-  comments,
+  reviews,
   isLiked,
 }) {
   return (
@@ -111,7 +111,7 @@ function Feed({
           key={id}
           author={user.username} // 작성자
           caption={caption} // 작성내용
-          comments={comments} // 댓글들 (댓글작성자, 댓글내용)
+          comments={reviews} // 댓글들 (댓글작성자, 댓글내용)
           commentNumber={reviewsNum} // 댓글 갯수
         />
         {/*{comments?.map((comment) => (*/}

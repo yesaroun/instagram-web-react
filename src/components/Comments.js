@@ -33,7 +33,7 @@ function Comments({ author, caption, comments, commentNumber }) {
       {comments?.map((comment) => (
         <CommentContainer>
           <CommentAuthor>{comment.user.username}</CommentAuthor>
-          <CommentContent>{comment.payload}</CommentContent>
+          <CommentContent>{comment.rcaption}</CommentContent>
         </CommentContainer>
       ))}
     </CommentsContainer>
