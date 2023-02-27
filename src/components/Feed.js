@@ -9,6 +9,7 @@ import {
   faPaperPlane,
   faBookmark,
 } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 const FeedContainer = styled.div`
   display: flex;
@@ -83,7 +84,9 @@ function Feed({
     <FeedContainer>
       <FeedHeader>
         <Avatar lg url={user.profileImg} />
-        <Nickname>{user.username}</Nickname>
+        <Link to={`/profile/${user.username}`}>
+          <Nickname>{user.username}</Nickname>
+        </Link>
       </FeedHeader>
       {/*<FeedPhoto src={file} />*/}
       <FeedPhoto src={contentImg} />

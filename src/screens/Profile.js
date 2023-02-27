@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocation, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { getAllFeeds, getUserFeeds } from "../api";
 
 const ProfileName = styled.div`
   display: flex;
@@ -69,6 +72,7 @@ const Icons = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   opacity: 0;
+
   &:hover {
     opacity: 1;
   }
@@ -89,16 +93,32 @@ const Icon = styled.span`
 `;
 
 function Profile() {
+  // const data = useLocation();
+  // console.log("data", data);
+  // /profile/admin
+
+  // const data2 = useParams();
+  // console.log("data2", data2);
+  // admin
+  // 이 링크 차이
+
+  const { username } = useParams();
+  console.log("username", username);
+  // 객체 안에 있는 username값을 한 번에 가져오는 방식
+
+  const { data } = useQuery(["feeds/", username], getUserFeeds);
+  console.log("data", data);
+
   return (
     <>
       <Header>
         <ProfileImg
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRomNxzu2Qeojtpo4Rql1wLPaGTofuViEFJA&usqp=CAU"
+          src={data ? data[0].user.profileImg : ""}
           alt="profile img"
         ></ProfileImg>
         <ProfileInfo>
           <Row>
-            <Username>유저명</Username>
+            <Username>{data ? data[0].user.username : ""}</Username>
             <FollowBtn>팔로우</FollowBtn>
           </Row>
           <Row>
@@ -108,21 +128,27 @@ function Profile() {
             <div>팔로잉수</div>
           </Row>
           <Row>
-            <div>소개글</div>
+            <div>{data ? data[0].user.profileIntroduce : ""}</div>
           </Row>
         </ProfileInfo>
       </Header>
       <Contents>
-        <Feed bg="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbfU91C%2FbtrroyqLD6T%2FDjcxlQNMDVU42HdICxYL0k%2Fimg.png">
-          <Icons>
-            <Icon>
-              <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
-            </Icon>
-            <Icon>
-              <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
-            </Icon>
-          </Icons>
-        </Feed>
+        {data?.map((feed) => (
+          <Feed bg={feed.contentImg}>
+            <Icons>
+              <Icon>
+                <FontAwesomeIcon icon={faHeart}>
+                  {feed.likesNum}
+                </FontAwesomeIcon>
+              </Icon>
+              <Icon>
+                <FontAwesomeIcon icon={faComment}>
+                  {feed.reviewsNum}
+                </FontAwesomeIcon>
+              </Icon>
+            </Icons>
+          </Feed>
+        ))}
       </Contents>
     </>
   );
