@@ -5,6 +5,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { usernameLogin } from "../api";
 import { isLoggedInVar } from "../apollo";
 
 const Container = styled.div`
@@ -114,10 +117,37 @@ const FacebookLogin = styled.div`
 `;
 
 function Login() {
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const mutation = useMutation(usernameLogin, {
+    onMutate: () => {
+      console.log("mutation start...");
+    },
+    onSuccess: () => {
+      console.log("API CALL SUCCESS");
+      isLoggedInVar(true);
+    },
+    onError: () => {
+      console.log("API CALL ERROR");
+    },
+  });
+
   const onSubmit = (event) => {
     event.preventDefault();
     console.log("login click");
-    isLoggedInVar(true);
+    mutation.mutate({ username, password }); // mutation 호출 | API call 할 때의 매개변수
+  };
+
+  const onChage = (event) => {
+    const { name, value } = event.currentTarget;
+    console.log(name, value);
+
+    if (name === "username") {
+      setUserName(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
   };
 
   return (
@@ -129,8 +159,22 @@ function Login() {
           </div>
 
           <form onSubmit={onSubmit}>
-            <Input type="email" placeholder="이메일" />
-            <Input type="password " placeholder="비밀번호" />
+            <Input
+              type="text"
+              name="username"
+              onChange={onChage}
+              value={username}
+              placeholder="유저네임"
+              required
+            />
+            <Input
+              type="password"
+              name="password"
+              onChange={onChage}
+              value={password}
+              placeholder="비밀번호"
+              required
+            />
             <Button type="submit" value="로그인" />
           </form>
 

@@ -6,6 +6,7 @@ const instance = axios.create({
   headers: {
     "X-CSRFToken": Cookes.get("csrftoken"),
   },
+  withCredentials: true,
 });
 
 export const getAllFeeds = () => {
@@ -19,4 +20,14 @@ export const getUserFeeds = ({ queryKey }) => {
   console.log("api - username", username);
 
   return instance.get("feeds/" + username).then((res) => res.data);
+};
+
+export const usernameLogin = ({ username, password }) => {
+  return instance
+    .post("users/login", { username, password })
+    .then((res) => res.data);
+};
+
+export const logout = () => {
+  return instance.post("user/logout", "").then((res) => res.data);
 };
